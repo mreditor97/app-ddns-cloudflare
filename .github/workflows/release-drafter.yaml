@@ -7,8 +7,13 @@ on:
     branches:
       - master
 
+permissions: {}
+
 jobs:
   workflows:
     name: Release Drafter
+    permissions:
+      contents: write
+      pull-requests: read
     # hassio-addons/workflows v4.0.0
     uses: hassio-addons/workflows/.github/workflows/release-drafter.yaml@e0c532a7b0fb264b3ff0c718c2c0308a0c8c1390
