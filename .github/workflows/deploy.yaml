@@ -14,11 +14,11 @@ on:
 
 jobs:
   workflows:
-    name: Add-on Deploy
-    uses: hassio-addons/workflows/.github/workflows/addon-deploy.yaml@main
+    name: App Deploy
+    uses: hassio-addons/workflows/.github/workflows/app-deploy.yaml@main
     with:
-      repository: 'homeassistant-addons'
-      repository_beta: 'homeassistant-addons-beta'
-      repository_edge: 'homeassistant-addons-edge'
+      repository: 'homeassistant-apps'
+      repository_beta: 'homeassistant-apps-beta'
+      repository_edge: 'homeassistant-apps-edge'
     secrets:
       DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}

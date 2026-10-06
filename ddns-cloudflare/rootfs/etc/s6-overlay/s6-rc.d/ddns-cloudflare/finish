@@ -1,6 +1,6 @@
 #!/command/with-contenv bashio
 # ==============================================================================
-# Home Assistant Add-on: Cloudflare Dynamic DNS Updater
+# Home Assistant App: Cloudflare Dynamic DNS Updater
 # Take down the S6 supervision tree when Cloudflare Dynamic DNS Updater fails
 # ==============================================================================
 

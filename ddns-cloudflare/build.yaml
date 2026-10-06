@@ -6,7 +6,7 @@ build_from:
   amd64: 'ghcr.io/home-assistant/amd64-base:3.23'
   i386: 'ghcr.io/home-assistant/i386-base:3.22'
 labels:
-  org.opencontainers.image.title: 'Home Assistant Add-on: Cloudflare Dynamic DNS Updater'
+  org.opencontainers.image.title: 'Home Assistant App: Cloudflare Dynamic DNS Updater'
   org.opencontainers.image.description: "Cloudflare Dynamic DNS updating service with Let's Encrypt support."
-  org.opencontainers.image.source: 'https://github.com/mreditor97/homeassistant-addons'
+  org.opencontainers.image.source: 'https://github.com/mreditor97/homeassistant-apps'
   org.opencontainers.image.licenses: 'MIT'
