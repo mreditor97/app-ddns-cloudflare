@@ -7,10 +7,7 @@ url: https://github.com/mreditor97/app-ddns-cloudflare
 startup: services
 arch:
   - aarch64
-  - armhf
-  - armv7
   - amd64
-  - i386
 init: false
 map:
   - ssl:rw
