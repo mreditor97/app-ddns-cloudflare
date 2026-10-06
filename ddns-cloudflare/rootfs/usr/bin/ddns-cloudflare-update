@@ -1,6 +1,6 @@
 #!/command/with-contenv bash
 # ==============================================================================
-# Home Assistant Add-on: Cloudflare Dynamic DNS Updater
+# Home Assistant App: Cloudflare Dynamic DNS Updater
 # Runs the Cloudflare Dynamic DNS Updater service
 # ==============================================================================
 
@@ -35,8 +35,8 @@ DNS_RECORD_ANSWER=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$
     -H "X-Auth-Email: ${CLOUDFLARE_EMAIL}" \
     -H "Authorization: Bearer ${CLOUDFLARE_SECRET}")
 
-    DNS_RECORD_ID=$(echo ${DNS_RECORD_ANSWER} | jq -r '{"result"}[] | .[0] | .id')
-    DNS_RECORD_CONTENT=$(echo ${DNS_RECORD_ANSWER} | jq -r '{"result"}[] | .[0] | .content')
+    DNS_RECORD_ID=$(echo "${DNS_RECORD_ANSWER}" | jq -r '{"result"}[] | .[0] | .id')
+    DNS_RECORD_CONTENT=$(echo "${DNS_RECORD_ANSWER}" | jq -r '{"result"}[] | .[0] | .content')
 
 echo "${DNS_RECORD_ANSWER}"
 echo "Cloudflare DNS Record ID for ${FQDN} has been fetched: ${DNS_RECORD_ID}"

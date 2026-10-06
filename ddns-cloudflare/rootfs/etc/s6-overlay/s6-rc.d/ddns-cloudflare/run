@@ -1,6 +1,6 @@
 #!/command/with-contenv bashio
 # ==============================================================================
-# Home Assistant Add-on: Cloudflare Dynamic DNS Updater
+# Home Assistant App: Cloudflare Dynamic DNS Updater
 # Runs the Cloudflare Dynamic DNS Updater service
 # ==============================================================================
 
@@ -24,18 +24,18 @@ CLOUDFLARE_COMMENT="$(bashio::config 'comment')"
 CLOUDFLARE_TTL="$(bashio::config 'ttl')"
 CLOUDFLARE_PROXIED="$(bashio::config 'proxied')"
 
-printf "${CLOUDFLARE_EMAIL}" > /var/run/s6/container_environment/CLOUDFLARE_EMAIL
-printf "${CLOUDFLARE_SECRET}" > /var/run/s6/container_environment/CLOUDFLARE_SECRET
-printf "${CLOUDFLARE_DOMAIN}" > /var/run/s6/container_environment/CLOUDFLARE_DOMAIN
-printf "${CLOUDFLARE_HOSTNAME}" > /var/run/s6/container_environment/CLOUDFLARE_HOSTNAME
-printf "${CLOUDFLARE_COMMENT}" > /var/run/s6/container_environment/CLOUDFLARE_COMMENT
-printf "${CLOUDFLARE_TTL}" > /var/run/s6/container_environment/CLOUDFLARE_TTL
-printf "${CLOUDFLARE_PROXIED}" > /var/run/s6/container_environment/CLOUDFLARE_PROXIED
+printf '%s' "${CLOUDFLARE_EMAIL}" > /var/run/s6/container_environment/CLOUDFLARE_EMAIL
+printf '%s' "${CLOUDFLARE_SECRET}" > /var/run/s6/container_environment/CLOUDFLARE_SECRET
+printf '%s' "${CLOUDFLARE_DOMAIN}" > /var/run/s6/container_environment/CLOUDFLARE_DOMAIN
+printf '%s' "${CLOUDFLARE_HOSTNAME}" > /var/run/s6/container_environment/CLOUDFLARE_HOSTNAME
+printf '%s' "${CLOUDFLARE_COMMENT}" > /var/run/s6/container_environment/CLOUDFLARE_COMMENT
+printf '%s' "${CLOUDFLARE_TTL}" > /var/run/s6/container_environment/CLOUDFLARE_TTL
+printf '%s' "${CLOUDFLARE_PROXIED}" > /var/run/s6/container_environment/CLOUDFLARE_PROXIED
 
 # Fully Qualified Domain Name
 FQDN="${CLOUDFLARE_HOSTNAME}.${CLOUDFLARE_DOMAIN}"
 
-printf "${FQDN}" > /var/run/s6/container_environment/FQDN
+printf '%s' "${FQDN}" > /var/run/s6/container_environment/FQDN
 
 # Let's Encrypt
 LE_ACCEPT_TERMS="$(bashio::config 'lets_encrypt.accept_terms')"
@@ -45,9 +45,9 @@ LE_DNS_DELAY="$(bashio::config 'lets_encrypt.dns_delay')"
 LE_RENEWAL_PERIOD="$(bashio::config 'lets_encrypt.renewal_period')"
 LE_UPDATE_FILE="${WORK_DIR}/${FQDN}.update"
 
-printf "${LE_CERTFILE}" > /var/run/s6/container_environment/LE_CERTFILE
-printf "${LE_KEYFILE}" > /var/run/s6/container_environment/LE_KEYFILE
-printf "${LE_DNS_DELAY}" > /var/run/s6/container_environment/LE_DNS_DELAY
+printf '%s' "${LE_CERTFILE}" > /var/run/s6/container_environment/LE_CERTFILE
+printf '%s' "${LE_KEYFILE}" > /var/run/s6/container_environment/LE_KEYFILE
+printf '%s' "${LE_DNS_DELAY}" > /var/run/s6/container_environment/LE_DNS_DELAY
 
 if bashio::config.has_value 'ipv4'
 then
