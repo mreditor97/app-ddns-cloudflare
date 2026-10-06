@@ -15,8 +15,8 @@ on:
 jobs:
   workflows:
     name: App Deploy
-    # hassio-addons/workflows main
-    uses: hassio-addons/workflows/.github/workflows/app-deploy.yaml@4452cb5bbe212770db7d858091d2e8ab09a4f783
+    # hassio-addons/workflows v4.0.0
+    uses: hassio-addons/workflows/.github/workflows/app-deploy.yaml@e0c532a7b0fb264b3ff0c718c2c0308a0c8c1390
     with:
       repository: 'homeassistant-apps'
       repository_beta: 'homeassistant-apps-beta'
